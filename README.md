@@ -2,7 +2,7 @@
 *Jaap Abbring, Jeff Campbell, Jan Tilly, Nan Yang*
 
 ## Introduction
-In the conclusion of *Very Simple Markov-Perfect Industry Dynamics: Theory*, we refer to the computational results that we present in a companion paper, [*Very Simple Markov-Perfect Industry Dynamics: Empirics*](https://pure.uvt.nl/portal/files/16003770/2017_021.pdf). We claim that
+In the conclusion of [*Very Simple Markov-Perfect Industry Dynamics: Theory*](http://jtilly.io/very-simple-theory.pdf), we refer to the computational results that we present in a companion paper, [*Very Simple Markov-Perfect Industry Dynamics: Empirics*](https://pure.uvt.nl/portal/files/16003770/2017_021.pdf). We claim that
 
 > [o]ur companion paper also demonstrates the practicality of applying our model to such data by estimating Motion Picture Theaters' sunk costs and the toughness of competition between them. The model's maximum likelihood estimation requires calculating a separate equilibrium for each market in the data for each trial value of its parameters, but this required only about thirty minutes using two Intel Xeon E5-2699 v3 CPUs (released by Intel in 2014) on a single machine with C++ code. We were also able to conduct many policy experiments, which calculated the effects of large demand shocks and counterfactual competition policies. This experience leads us to conclude that structural investigations of oligopoly dynamics based on this paper's model can be done with few computational resources.
 
