@@ -1,0 +1,16 @@
+*.so
+*.dll
+*.dynlib
+.Rbuildignore
+.Rhistory
+*.Rproj*
+*.o
+.install
+.counterfactuals
+.montecarlo
+.estimation
+.Rproj.user
+*.tar.gz
+*.log
+*.zip
+README.html

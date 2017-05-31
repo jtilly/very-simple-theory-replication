@@ -1,0 +1,16 @@
+Package: actyR
+Type: Package
+Title: Very Simple Markov Perfect Industry Dynamics: Theory
+Version: 1.0
+Date: 2015-08-01
+Author: Jan Tilly
+URL: https://github.com/jtilly/actyR
+Maintainer: Jan Tilly <jantilly@gmail.com>
+Description: This package contains code to replicate claims made in the
+    conclusion of `Very Simple Markov Perfect Industry Dynamics: Theory`.
+License: GPL-2
+Imports: Rcpp
+LinkingTo: Rcpp, RcppArmadillo
+Depends: gaussquad, tictoc, doParallel, expm
+Suggests: testthat
+RoxygenNote: 6.0.1

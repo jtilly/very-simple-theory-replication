@@ -1,0 +1,306 @@
+Rscript -e 'if(!"Rcpp" %in% installed.packages()[,1]) install.packages("Rcpp", repos = "http://cran.us.r-project.org")'
+Rscript -e 'if(!"RcppArmadillo" %in% installed.packages()[,1]) install.packages("RcppArmadillo", repos = "http://cran.us.r-project.org")'
+Rscript -e 'if(!"gaussquad" %in% installed.packages()[,1]) install.packages("gaussquad", repos = "http://cran.us.r-project.org")'
+Rscript -e 'if(!"foreach" %in% installed.packages()[,1]) install.packages("foreach", repos = "http://cran.us.r-project.org")'
+Rscript -e 'if(!"tictoc" %in% installed.packages()[,1]) install.packages("tictoc", repos = "http://cran.us.r-project.org")'
+Rscript -e 'if(!"expm" %in% installed.packages()[,1]) install.packages("expm", repos = "http://cran.us.r-project.org")'
+Rscript -e 'if(!"doParallel" %in% installed.packages()[,1]) install.packages("doParallel", repos = "http://cran.us.r-project.org")'
+R CMD INSTALL actyR --preclean
+make[1]: Entering directory `/home/jtilly/very-simple-theory-replication/actyR/src'
+make[1]: Leaving directory `/home/jtilly/very-simple-theory-replication/actyR/src'
+make[1]: Entering directory `/home/jtilly/very-simple-theory-replication/actyR/src'
+g++ -I/usr/include/R -DNDEBUG  -I/usr/local/include -I"/home/jtilly/Rlib/Rcpp/include" -I"/home/jtilly/Rlib/RcppArmadillo/include"  -I../inst/include -fpic  -O3  -c RcppExports.cpp -o RcppExports.o
+g++ -I/usr/include/R -DNDEBUG  -I/usr/local/include -I"/home/jtilly/Rlib/Rcpp/include" -I"/home/jtilly/Rlib/RcppArmadillo/include"  -I../inst/include -fpic  -O3  -c lib.cpp -o lib.o
+g++ -I/usr/include/R -DNDEBUG  -I/usr/local/include -I"/home/jtilly/Rlib/Rcpp/include" -I"/home/jtilly/Rlib/RcppArmadillo/include"  -I../inst/include -fpic  -O3  -c nfxp.cpp -o nfxp.o
+g++ -I/usr/include/R -DNDEBUG  -I/usr/local/include -I"/home/jtilly/Rlib/Rcpp/include" -I"/home/jtilly/Rlib/RcppArmadillo/include"  -I../inst/include -fpic  -O3  -c nfxpGradient.cpp -o nfxpGradient.o
+g++ -shared -L/usr/lib64/R/lib -o actyR.so RcppExports.o lib.o nfxp.o nfxpGradient.o -L/usr/lib64/R/lib -lRlapack -L/usr/lib64/R/lib -lRblas -lgfortran -lm -L/usr/lib64/R/lib -lR
+make[1]: Leaving directory `/home/jtilly/very-simple-theory-replication/actyR/src'
+  converting help for package ‘actyR’
+    actyR-package                           html  
+    computeMixingDensity                    html  
+    cov                                     html  
+    dPidMu                                  html  
+    dPidSigma                               html  
+    ergodic                                 html  
+    firms                                   html  
+    getModelTransitionMatrix                html  
+    likelihood                              html  
+    likelihoodGradient                      html  
+    mixingDensityGradient                   html  
+    mixingProbabilities                     html  
+    nfxpCovarianceStep3                     html  
+    nfxpGradientStep1                       html  
+    nfxpGradientStep2                       html  
+    nfxpGradientStep3                       html  
+    nfxpLikelihoodStep1                     html  
+    nfxpLikelihoodStep2                     html  
+    nfxpLikelihoodStep3                     html  
+    population                              html  
+    simulateData                            html  
+    tauchen                                 html  
+    valuefunction                           html  
+touch .install
+Rscript "estimation.R"
+initial  value 7190.694055 
+iter   2 value 6491.766703
+iter   3 value 6291.507072
+iter   4 value 6130.517532
+iter   5 value 6056.804410
+iter   6 value 6032.620876
+iter   7 value 6030.633363
+iter   8 value 6030.609245
+iter   9 value 6024.279188
+iter  10 value 6024.278836
+iter  10 value 6024.278833
+iter  10 value 6024.278833
+final  value 6024.278833 
+converged
+[1] 18922.31
+[1]  -156.4917   579.5388   178.5444  3577.3061 -1857.7988  4495.8008
+initial  value 18922.312734 
+iter   2 value 16636.170727
+iter   3 value 14017.422271
+iter   4 value 12039.092410
+iter   5 value 9969.181062
+iter   6 value 7852.100852
+iter   7 value 7220.864491
+iter   8 value 7171.910423
+iter   9 value 5846.432396
+iter  10 value 5339.063546
+iter  11 value 5171.599574
+iter  12 value 4961.061772
+iter  13 value 4371.835753
+iter  14 value 4026.952171
+iter  15 value 3898.703777
+iter  16 value 3718.130940
+iter  17 value 3687.384031
+iter  18 value 3683.687778
+iter  19 value 3531.937741
+iter  20 value 3418.778440
+iter  21 value 3366.322017
+iter  22 value 3342.217962
+iter  23 value 3336.069700
+iter  24 value 3326.585398
+iter  25 value 3313.048007
+iter  26 value 3297.125821
+iter  27 value 3289.216535
+iter  28 value 3288.637855
+iter  29 value 3288.587942
+iter  30 value 3288.557767
+iter  31 value 3288.524853
+iter  32 value 3281.872346
+iter  33 value 3274.665693
+iter  34 value 3265.270838
+iter  35 value 3260.446741
+iter  36 value 3257.334086
+iter  37 value 3255.408061
+iter  38 value 3254.243005
+iter  39 value 3253.527058
+iter  40 value 3253.520606
+iter  41 value 3253.515789
+iter  42 value 3253.508407
+iter  43 value 3253.472898
+iter  44 value 3253.459068
+iter  45 value 3253.453612
+iter  46 value 3253.452025
+iter  47 value 3253.430466
+iter  48 value 3253.397328
+iter  49 value 3253.328105
+iter  50 value 3253.259762
+iter  51 value 3253.234876
+iter  52 value 3253.231661
+iter  53 value 3253.231614
+iter  53 value 3253.231591
+iter  53 value 3253.231591
+final  value 3253.231591 
+converged
+initial  value 9277.510424 
+iter   1 value 9277.510411
+final  value 9277.510411 
+converged
+initial  value 3253.231591 
+iter   2 value 3208.237128
+iter   3 value 3205.310566
+iter   4 value 3205.207185
+iter   5 value 3204.944416
+iter   6 value 3204.815750
+iter   7 value 3202.973480
+iter   8 value 3201.829127
+iter   9 value 3197.749423
+iter  10 value 3197.636717
+iter  10 value 3197.636717
+iter  11 value 3196.403073
+iter  12 value 3196.217790
+iter  13 value 3195.604070
+iter  14 value 3194.835307
+iter  15 value 3186.919751
+iter  16 value 3186.128735
+iter  17 value 3183.749440
+iter  18 value 3183.242464
+iter  19 value 3183.170533
+iter  20 value 3182.567012
+iter  21 value 3182.443315
+iter  22 value 3182.103522
+iter  23 value 3181.665691
+iter  24 value 3181.612273
+iter  25 value 3181.608317
+iter  26 value 3181.448246
+iter  26 value 3181.448246
+iter  27 value 3181.275560
+iter  28 value 3181.254191
+iter  29 value 3181.241752
+iter  30 value 3181.240257
+iter  31 value 3181.134192
+iter  32 value 3181.044133
+iter  33 value 3181.000931
+iter  34 value 3180.989728
+iter  34 value 3180.989728
+iter  35 value 3180.975343
+iter  36 value 3180.963157
+iter  37 value 3180.945427
+iter  38 value 3180.941754
+iter  39 value 3180.934059
+iter  40 value 3180.931394
+iter  41 value 3180.924660
+iter  42 value 3180.910558
+iter  43 value 3180.910315
+iter  44 value 3180.898570
+iter  44 value 3180.898570
+iter  45 value 3180.888386
+iter  46 value 3180.883490
+iter  47 value 3180.881158
+iter  48 value 3180.880640
+iter  48 value 3180.880640
+iter  49 value 3180.873357
+iter  50 value 3180.872633
+iter  51 value 3180.872376
+iter  52 value 3180.872328
+iter  52 value 3180.872328
+iter  53 value 3180.869921
+iter  53 value 3180.869921
+iter  54 value 3180.869294
+iter  54 value 3180.869294
+iter  55 value 3180.869140
+iter  55 value 3180.869140
+iter  55 value 3180.869112
+final  value 3180.869112 
+converged
+936.444 sec elapsed
+initial  value 9205.147945 
+iter   2 value 9205.139239
+iter   3 value 9205.126011
+iter   4 value 9205.124418
+iter   5 value 9205.113677
+iter   6 value 9205.107583
+iter   7 value 9205.097694
+iter   8 value 9205.086186
+iter   9 value 9205.080720
+iter  10 value 9205.070325
+iter  11 value 9205.070097
+iter  12 value 9205.051044
+iter  13 value 9205.000811
+iter  14 value 9204.956954
+iter  15 value 9204.952839
+iter  16 value 9204.943269
+iter  17 value 9204.901334
+iter  18 value 9204.882726
+iter  19 value 9204.839543
+iter  20 value 9204.802504
+iter  21 value 9204.613405
+iter  22 value 9204.217826
+iter  23 value 9203.255764
+iter  24 value 9202.325026
+iter  25 value 9200.417531
+iter  26 value 9199.916784
+iter  27 value 9199.406526
+iter  28 value 9199.166469
+iter  29 value 9199.130064
+iter  30 value 9199.128935
+iter  31 value 9199.128668
+iter  32 value 9199.128528
+iter  32 value 9199.128510
+iter  32 value 9199.128509
+final  value 9199.128509 
+converged
+367.693 sec elapsed
+initial  value 3180.869112 
+iter   2 value 3177.033618
+iter   3 value 3175.473032
+iter   4 value 3175.053121
+iter   5 value 3174.950840
+iter   6 value 3174.884329
+iter   7 value 3174.856970
+iter   8 value 3174.800148
+iter   9 value 3174.739553
+iter  10 value 3174.720377
+iter  11 value 3174.609313
+iter  12 value 3174.582363
+iter  13 value 3174.534868
+iter  14 value 3174.504165
+iter  15 value 3174.472921
+iter  16 value 3174.327617
+iter  17 value 3174.268435
+iter  18 value 3174.257195
+iter  19 value 3174.207448
+iter  20 value 3174.185543
+iter  21 value 3174.118258
+iter  22 value 3174.092280
+iter  23 value 3173.772345
+iter  24 value 3173.186866
+iter  25 value 3171.523889
+iter  26 value 3170.311528
+iter  27 value 3169.866903
+iter  28 value 3168.259455
+iter  29 value 3168.152212
+iter  30 value 3168.010968
+iter  31 value 3167.989401
+iter  32 value 3167.974587
+iter  33 value 3167.967532
+iter  34 value 3167.965577
+iter  35 value 3167.965247
+iter  36 value 3167.965184
+iter  36 value 3167.965177
+iter  36 value 3167.965177
+final  value 3167.965177 
+converged
+402.364 sec elapsed
+initial  value 9192.244010 
+iter   1 value 9192.243970
+final  value 9192.243970 
+converged
+15.391 sec elapsed
+Time difference of 29.50146 mins
+Rscript "counterfactuals.R"
+ [1] 1.247818 1.268353 1.282452 1.293443 1.302635 1.310639 1.317784 1.324277
+ [9] 1.330257 1.335828 1.341069 1.346042 1.350796 1.355373 1.359806 1.364121
+[17] 1.368341 1.372484 1.376564 1.380594 1.384585 1.388543 1.392477 1.396390
+[25] 1.400289 1.404176 1.408055 1.411928 1.415797 1.419664 1.423530
+ [1] 1.247818 1.265436 1.272220 1.275422 1.277841 1.280499 1.283701 1.287474
+ [9] 1.291742 1.296409 1.301385 1.306592 1.311972 1.317480 1.323082 1.328755
+[17] 1.334482 1.340250 1.346051 1.351879 1.357730 1.363602 1.369492 1.375400
+[25] 1.381324 1.387264 1.393221 1.399193 1.405180 1.411183 1.417202
+ [1] 1.247818 1.261108 1.271553 1.280661 1.288863 1.296338 1.303197 1.309538
+ [9] 1.315444 1.320992 1.326247 1.331264 1.336089 1.340760 1.345309 1.349761
+[17] 1.354135 1.358449 1.362714 1.366942 1.371141 1.375318 1.379476 1.383622
+[25] 1.387757 1.391885 1.396007 1.400126 1.404241 1.408355 1.412469
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+Time difference of 30.17797 mins

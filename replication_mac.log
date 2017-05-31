@@ -1,0 +1,279 @@
+Rscript -e 'if(!"Rcpp" %in% installed.packages()[,1]) install.packages("Rcpp", repos = "http://cran.us.r-project.org")'
+Rscript -e 'if(!"RcppArmadillo" %in% installed.packages()[,1]) install.packages("RcppArmadillo", repos = "http://cran.us.r-project.org")'
+Rscript -e 'if(!"gaussquad" %in% installed.packages()[,1]) install.packages("gaussquad", repos = "http://cran.us.r-project.org")'
+Rscript -e 'if(!"foreach" %in% installed.packages()[,1]) install.packages("foreach", repos = "http://cran.us.r-project.org")'
+Rscript -e 'if(!"tictoc" %in% installed.packages()[,1]) install.packages("tictoc", repos = "http://cran.us.r-project.org")'
+Rscript -e 'if(!"expm" %in% installed.packages()[,1]) install.packages("expm", repos = "http://cran.us.r-project.org")'
+Rscript -e 'if(!"doParallel" %in% installed.packages()[,1]) install.packages("doParallel", repos = "http://cran.us.r-project.org")'
+R CMD INSTALL actyR --preclean
+g++ -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I/usr/local/include -I"/Library/Frameworks/R.framework/Versions/3.1/Resources/library/Rcpp/include" -I"/Library/Frameworks/R.framework/Versions/3.1/Resources/library/RcppArmadillo/include"  -I../inst/include -fPIC  -O3 -pipe -Wno-unused -pedantic -std=c++11 -c RcppExports.cpp -o RcppExports.o
+g++ -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I/usr/local/include -I"/Library/Frameworks/R.framework/Versions/3.1/Resources/library/Rcpp/include" -I"/Library/Frameworks/R.framework/Versions/3.1/Resources/library/RcppArmadillo/include"  -I../inst/include -fPIC  -O3 -pipe -Wno-unused -pedantic -std=c++11 -c lib.cpp -o lib.o
+g++ -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I/usr/local/include -I"/Library/Frameworks/R.framework/Versions/3.1/Resources/library/Rcpp/include" -I"/Library/Frameworks/R.framework/Versions/3.1/Resources/library/RcppArmadillo/include"  -I../inst/include -fPIC  -O3 -pipe -Wno-unused -pedantic -std=c++11 -c nfxp.cpp -o nfxp.o
+g++ -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I/usr/local/include -I"/Library/Frameworks/R.framework/Versions/3.1/Resources/library/Rcpp/include" -I"/Library/Frameworks/R.framework/Versions/3.1/Resources/library/RcppArmadillo/include"  -I../inst/include -fPIC  -O3 -pipe -Wno-unused -pedantic -std=c++11 -c nfxpGradient.cpp -o nfxpGradient.o
+g++ -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/Library/Frameworks/R.framework/Resources/lib -L/usr/local/lib -L/usr/local/lib -o actyR.so RcppExports.o lib.o nfxp.o nfxpGradient.o -L/Library/Frameworks/R.framework/Resources/lib -lRlapack -L/Library/Frameworks/R.framework/Resources/lib -lRblas -L/usr/local/Cellar/gcc/4.9.2_1/lib/gcc/4.9 -F/Library/Frameworks/R.framework/.. -framework R -Wl,-framework -Wl,CoreFoundation
+touch .install
+Rscript "estimation.R"
+initial  value 7190.694055 
+iter   2 value 6491.766703
+iter   3 value 6291.507072
+iter   4 value 6130.517532
+iter   5 value 6056.804410
+iter   6 value 6032.620876
+iter   7 value 6030.633363
+iter   8 value 6030.609245
+iter   9 value 6024.279188
+iter  10 value 6024.278836
+iter  10 value 6024.278833
+iter  10 value 6024.278833
+final  value 6024.278833 
+converged
+[1] 18922.31
+[1]  -156.4917   579.5388   178.5444  3577.3061 -1857.7988  4495.8008
+initial  value 18922.312734 
+iter   2 value 16636.170727
+iter   3 value 14017.422271
+iter   4 value 12039.092410
+iter   5 value 9969.181062
+iter   6 value 7852.100852
+iter   7 value 7220.864491
+iter   8 value 7171.910423
+iter   9 value 5846.432396
+iter  10 value 5339.063546
+iter  11 value 5171.599574
+iter  12 value 4961.061772
+iter  13 value 4371.835753
+iter  14 value 4026.952171
+iter  15 value 3898.703777
+iter  16 value 3718.130940
+iter  17 value 3687.384031
+iter  18 value 3683.687778
+iter  19 value 3531.937741
+iter  20 value 3418.778440
+iter  21 value 3366.322017
+iter  22 value 3342.217962
+iter  23 value 3336.069700
+iter  24 value 3326.585398
+iter  25 value 3313.048007
+iter  26 value 3297.125821
+iter  27 value 3289.216535
+iter  28 value 3288.637855
+iter  29 value 3288.587942
+iter  30 value 3288.557767
+iter  31 value 3288.524853
+iter  32 value 3281.872346
+iter  33 value 3274.665693
+iter  34 value 3265.270838
+iter  35 value 3260.446741
+iter  36 value 3257.334086
+iter  37 value 3255.408061
+iter  38 value 3254.243005
+iter  39 value 3253.527058
+iter  40 value 3253.520606
+iter  41 value 3253.515789
+iter  42 value 3253.508407
+iter  43 value 3253.472898
+iter  44 value 3253.459068
+iter  45 value 3253.453612
+iter  46 value 3253.452025
+iter  47 value 3253.430466
+iter  48 value 3253.397328
+iter  49 value 3253.328105
+iter  50 value 3253.259762
+iter  51 value 3253.234876
+iter  52 value 3253.231661
+iter  53 value 3253.231614
+iter  53 value 3253.231591
+iter  53 value 3253.231591
+final  value 3253.231591 
+converged
+initial  value 9277.510424 
+iter   1 value 9277.510411
+final  value 9277.510411 
+converged
+initial  value 3253.231591 
+iter   2 value 3208.237132
+iter   3 value 3205.310569
+iter   4 value 3205.207189
+iter   5 value 3204.944419
+iter   6 value 3204.815753
+iter   7 value 3202.973483
+iter   8 value 3201.829127
+iter   9 value 3197.749425
+iter  10 value 3197.636720
+iter  10 value 3197.636720
+iter  11 value 3196.403075
+iter  12 value 3196.217792
+iter  13 value 3195.604071
+iter  14 value 3194.835310
+iter  15 value 3186.919753
+iter  16 value 3186.128741
+iter  17 value 3183.749441
+iter  18 value 3183.242465
+iter  19 value 3183.170535
+iter  20 value 3182.567013
+iter  21 value 3182.443317
+iter  22 value 3182.103526
+iter  23 value 3181.665694
+iter  24 value 3181.612275
+iter  25 value 3181.608319
+iter  26 value 3181.448245
+iter  26 value 3181.448245
+iter  27 value 3181.275559
+iter  28 value 3181.254192
+iter  29 value 3181.241752
+iter  30 value 3181.240257
+iter  31 value 3181.134194
+iter  32 value 3181.044135
+iter  33 value 3181.000930
+iter  34 value 3180.989727
+iter  34 value 3180.989727
+iter  35 value 3180.975342
+iter  36 value 3180.963155
+iter  37 value 3180.945425
+iter  38 value 3180.941753
+iter  39 value 3180.934059
+iter  40 value 3180.931393
+iter  41 value 3180.924660
+iter  42 value 3180.910559
+iter  43 value 3180.910315
+iter  44 value 3180.898572
+iter  44 value 3180.898572
+iter  45 value 3180.888385
+iter  46 value 3180.883489
+iter  47 value 3180.881157
+iter  48 value 3180.880639
+iter  48 value 3180.880639
+iter  49 value 3180.873355
+iter  50 value 3180.872631
+iter  51 value 3180.872375
+iter  52 value 3180.872326
+iter  52 value 3180.872326
+iter  53 value 3180.869919
+iter  53 value 3180.869919
+iter  54 value 3180.869293
+iter  54 value 3180.869293
+iter  55 value 3180.869139
+iter  55 value 3180.869139
+iter  55 value 3180.869110
+final  value 3180.869110 
+converged
+5325.564 sec elapsed
+initial  value 9205.147943 
+iter   2 value 9205.139238
+iter   3 value 9205.126036
+iter   4 value 9205.124454
+iter   5 value 9205.113711
+iter   6 value 9205.107618
+iter   7 value 9205.097725
+iter   8 value 9205.086216
+iter   9 value 9205.080749
+iter  10 value 9205.070365
+iter  11 value 9205.070134
+iter  12 value 9205.051078
+iter  13 value 9205.000835
+iter  14 value 9204.956971
+iter  15 value 9204.952855
+iter  16 value 9204.943281
+iter  17 value 9204.901333
+iter  18 value 9204.882728
+iter  19 value 9204.839544
+iter  20 value 9204.802507
+iter  21 value 9204.613406
+iter  22 value 9204.217828
+iter  23 value 9203.255757
+iter  24 value 9202.325033
+iter  25 value 9200.417556
+iter  26 value 9199.916782
+iter  27 value 9199.406524
+iter  28 value 9199.166463
+iter  29 value 9199.130062
+iter  30 value 9199.128931
+iter  31 value 9199.128668
+iter  32 value 9199.128528
+iter  32 value 9199.128510
+iter  32 value 9199.128509
+final  value 9199.128509 
+converged
+2214.76 sec elapsed
+initial  value 3180.869110 
+iter   2 value 3177.033617
+iter   3 value 3175.473030
+iter   4 value 3175.053119
+iter   5 value 3174.950839
+iter   6 value 3174.884328
+iter   7 value 3174.856969
+iter   8 value 3174.800147
+iter   9 value 3174.739552
+iter  10 value 3174.720376
+iter  11 value 3174.609312
+iter  12 value 3174.582362
+iter  13 value 3174.534868
+iter  14 value 3174.504165
+iter  15 value 3174.472921
+iter  16 value 3174.327616
+iter  17 value 3174.268432
+iter  18 value 3174.257193
+iter  19 value 3174.207448
+iter  20 value 3174.185541
+iter  21 value 3174.118258
+iter  22 value 3174.092280
+iter  23 value 3173.772346
+iter  24 value 3173.186871
+iter  25 value 3171.523893
+iter  26 value 3170.311560
+iter  27 value 3169.866795
+iter  28 value 3168.259453
+iter  29 value 3168.152187
+iter  30 value 3168.010969
+iter  31 value 3167.989403
+iter  32 value 3167.974587
+iter  33 value 3167.967531
+iter  34 value 3167.965577
+iter  35 value 3167.965247
+iter  36 value 3167.965184
+iter  36 value 3167.965177
+iter  36 value 3167.965177
+final  value 3167.965177 
+converged
+2389.001 sec elapsed
+initial  value 9192.244010 
+iter   1 value 9192.243970
+final  value 9192.243970 
+converged
+87.05 sec elapsed
+Time difference of 2.820816 hours
+Rscript "counterfactuals.R"
+ [1] 1.247818 1.268353 1.282452 1.293443 1.302635 1.310639 1.317784 1.324277
+ [9] 1.330257 1.335828 1.341069 1.346042 1.350796 1.355373 1.359806 1.364121
+[17] 1.368341 1.372484 1.376564 1.380594 1.384585 1.388543 1.392477 1.396390
+[25] 1.400289 1.404176 1.408055 1.411928 1.415797 1.419664 1.423530
+ [1] 1.247818 1.265436 1.272220 1.275422 1.277841 1.280499 1.283701 1.287474
+ [9] 1.291742 1.296409 1.301385 1.306592 1.311972 1.317480 1.323082 1.328755
+[17] 1.334482 1.340250 1.346051 1.351879 1.357730 1.363602 1.369492 1.375400
+[25] 1.381324 1.387264 1.393221 1.399193 1.405180 1.411183 1.417202
+ [1] 1.247818 1.261108 1.271553 1.280661 1.288863 1.296338 1.303197 1.309538
+ [9] 1.315444 1.320992 1.326247 1.331264 1.336089 1.340760 1.345309 1.349761
+[17] 1.354135 1.358449 1.362714 1.366942 1.371141 1.375318 1.379476 1.383622
+[25] 1.387757 1.391885 1.396007 1.400126 1.404241 1.408355 1.412469
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+Time difference of 1.881221 hours
+ 

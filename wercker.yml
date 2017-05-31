@@ -1,0 +1,36 @@
+box: rocker/r-base
+build:
+    steps:
+        - script:
+            name: install package
+            code: |
+                export TZ='US/Eastern'
+                mkdir -p $HOME/Rlib
+                echo 'R_LIBS=$HOME/Rlib' > $HOME/.Renviron
+                echo 'options(repos = "http://cran.rstudio.com")' > $HOME/.Rprofile
+                apt-get update && apt-get install -yy libssl-dev libcurl4-openssl-dev libxml2-dev git ruby-dev
+                gem install github-markdown
+                Rscript -e 'install.packages("devtools")'
+                Rscript -e 'install.packages("roxygen2")'
+                Rscript -e 'install.packages("testthat")'
+                make clean
+                make install
+                mkdir -p ../very-simple-theory-replication
+                cp -r * ../very-simple-theory-replication/
+                ./build.sh
+deploy:
+    steps:
+        - script:
+            name: deploy
+            code: |
+                apt-get update && apt-get -yy install git
+                export TZ='US/Eastern'
+                remote="https://$GITHUB_TOKEN@github.com/$WERCKER_GIT_OWNER/jtilly.github.io.git"
+                git clone $remote
+                cd jtilly.github.io
+                git config user.email "jantilly@gmail.com"
+                git config user.name "jtilly"
+                mv ../very-simple-theory-replication.zip .
+                git add very-simple-theory-replication.zip
+                git commit -m "Update from Wercker"
+                git push origin master
